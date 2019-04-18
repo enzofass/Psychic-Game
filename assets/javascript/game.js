@@ -18,7 +18,7 @@ const gsfText = document.getElementById("gsf-text");
 let magicLetter = letterChoice[Math.floor(Math.random() * letterChoice.length)];
 
 // alert user to press a key
-alert("Press a key from a-z to play game");
+// alert("Press a key from a-z to play game");
 
 // clear guesses so far function
 function clearArray() {
