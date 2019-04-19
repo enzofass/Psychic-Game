@@ -13,6 +13,10 @@ const winsText = document.getElementById("wins-text");
 const lossText = document.getElementById("loss-text");
 const glText = document.getElementById("gl-text");
 const gsfText = document.getElementById("gsf-text");
+const alreadyGuessed = "You already gueassed that letter!";
+const wrongGuess = "Try again!";
+const rightGuess = "You won!";
+const outOfGuesses = "You lost!";
 
 // Randomly chooses a choice from the options array. This is the Computer's guess.
 let magicLetter = letterChoice[Math.floor(Math.random() * letterChoice.length)];
@@ -43,14 +47,17 @@ document.onkeyup = function(event) {
     guessLeft = 10;
     clearArray();
     generateNewLettter();
+    document.querySelector("#message").textContent = rightGuess;
   } else if (guessLeft > 0 && repeatGuess === false && validGuess === true) {
     guessLeft--;
     guessSoFar.push(userGuess);
+    document.querySelector("#message").textContent = wrongGuess;
   } else if (guessLeft === 0) {
     losses++;
     guessLeft = 10;
     clearArray();
     generateNewLettter();
+    document.querySelector("#message").textContent = outOfGuesses;
   }
 // Display the user and computer guesses, and wins/losses/ties.
 function render() {
